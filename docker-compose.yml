@@ -1,5 +1,12 @@
 version: '3.8'
+
 services:
+  backend:
+    build: .
+    ports:
+      - "8081:8080"
+    networks:
+      - monitoring
 
   prometheus:
     image: prom/prometheus
@@ -7,8 +14,15 @@ services:
       - "9090:9090"
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - monitoring
 
   grafana:
     image: grafana/grafana
     ports:
       - "3001:3000"
+    networks:
+      - monitoring
+
+networks:
+  monitoring:
