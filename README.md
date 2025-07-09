@@ -7,9 +7,9 @@
 - Jonatan Romero Arrieta  
 
 ### 👨‍🏫 Profesor:
-- Diego Botia
-- 
-- Universidad de Antioquia – Facultad de Ingeniería
+- Diego José Botia Valderrama
+  
+ Universidad de Antioquia – Facultad de Ingeniería
 
 ---
 
@@ -67,7 +67,9 @@ La feature **"Optimización de Rutas"** forma parte del sistema **CourierSync**,
 ---
 
 ## 📦 Vista de Paquetes
+
 ![Paquetes](./img/paquetes.jpg)
+
 El backend está dividido en los siguientes paquetes:
 
 - `controller`: Manejo de endpoints HTTP  
@@ -81,7 +83,9 @@ El backend está dividido en los siguientes paquetes:
 ---
 
 ## 🧩 Vista de Componentes
+
 ![Componentes](./img/componentes.jpg)
+
 Relaciones entre paquetes principales:
 
 
@@ -91,7 +95,9 @@ Relaciones entre paquetes principales:
 ---
 
 ## 🌐 Vista de Despliegue
+
 ![Despliegue](./img/despliegue.jpg)
+
 El sistema está desplegado en tres entornos distintos:
 
 | Componente   | Plataforma | Tecnología |
@@ -118,6 +124,7 @@ Listado base de endpoints:
 | PUT    | /roles/{id}          | Actualizar rol              |
 | DELETE | /roles/{id}          | Eliminar rol                |
 | GET    | /roles               | Listar roles disponibles    |
+
 ![Swagger](./img/swagger.jpg)
 
 > 🔐 Todos los endpoints protegidos requieren token JWT con rol de `ADMINISTRATOR`.
