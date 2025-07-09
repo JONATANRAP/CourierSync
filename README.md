@@ -1,4 +1,4 @@
-# 📦 CourierSync – Sprint 1  
+![image](https://github.com/user-attachments/assets/da1255f2-cbe3-4f6d-ab9e-db6b67e741a2)# 📦 CourierSync – Sprint 1  
 
 ## 🚀 Feature: Optimización de Rutas
 
@@ -151,10 +151,19 @@ La aplicación backend está dockerizada con:
 
 ### 🖼️ Evidencias disponibles:
 - ✅ Prometheus detecta el target `springboot` como **UP**.
+  
+  ![Prometheus](./img/prometheus.jpg)
+  
 - ✅ Grafana visualiza métricas como:
+
+  ![grafana](./img/prometheus.jpg)
+  
   - Uso de memoria (JVM)
   - Solicitudes HTTP
-  - Carga del sistema
+    
+ ![grafana1](./img/grafana1.jpg)
+
+ ![grafana2](./img/grafana2.jpg)
 
 ---
 
