@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/da1255f2-cbe3-4f6d-ab9e-db6b67e741a2)# 📦 CourierSync – Sprint 1  
+# 📦 CourierSync – Sprint 1  
 
 ## 🚀 Feature: Optimización de Rutas
 
