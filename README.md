@@ -142,8 +142,6 @@ Se configuró monitoreo a nivel de aplicación usando contenedores Docker.
 | Prometheus  | 9090   | Recolector de métricas     |
 | Grafana     | 3001   | Visualización de métricas  |
 
-La aplicación expone métricas en el endpoint:  
-
 
 ---
 
