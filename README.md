@@ -1,122 +1,166 @@
-# CourierSync
-# 📦 CourierSync – Feature 2: Gestión de Entregas
-
-Este repositorio forma parte del proyecto *CourierSync_V1*, desarrollado como implementación práctica dentro del modelo de Fábrica Escuela de Ingeniería de Sistemas. Nos enfocamos en aplicar metodologías ágiles bajo el marco de trabajo **Scrum**, y esta sección corresponde al trabajo realizado por el **equipo de arquitectura de software** en el **Sprint 1**, para la **FEATURE 2 – Gestión de Entregas**.
+Aquí tienes el contenido en formato **Markdown** (`README.md`) que puedes pegar directamente en tu repositorio de GitHub para documentar tu Sprint 1 de **CourierSync**, sin incluir imágenes:
 
 ---
 
-## ✅ Entregables Sprint 1 – Arquitectura de Software
+````markdown
+# 📦 CourierSync – Sprint 1  
+## 🚀 Feature: Optimización de Rutas  
 
-### 1. 📌 Contexto del Sistema y Alcance General
+### 👥 Estudiantes:
+- Cristian Agudelo Márquez  
+- Jonatan Romero Arrieta  
 
-**Descripción**:  
-La Feature 2 permite registrar, consultar, actualizar y gestionar el estado de las entregas realizadas por los couriers a los clientes. Esta funcionalidad es fundamental para llevar un control de las entregas asignadas y garantizar trazabilidad.
-
-**Diagrama de Contexto**:  
-Incluye actores como:
-- Courier  
-- Cliente  
-- Administrador del sistema  
-- Sistema externo (si aplica)
-
-Representa la interacción entre estos actores y el sistema para procesos como asignación de entregas, cambios de estado y consulta de información.
+### 👨‍🏫 Profesor:
+- Diego Botia  
+- Universidad de Antioquia – Facultad de Ingeniería  
 
 ---
 
-### 2. 🛠️ Requisitos Arquitectónicos
+## 📌 Contexto del Sistema
 
-**Requisitos No Funcionales**:
-- **Escalabilidad**: Soporte para múltiples entregas simultáneas.
-- **Disponibilidad**: Alta disponibilidad para actualizaciones en tiempo real.
-- **Seguridad**: Acceso autenticado por roles.
+La feature **"Optimización de Rutas"** forma parte del sistema **CourierSync**, diseñado para mejorar la eficiencia logística de una empresa de transporte. Permite calcular rutas óptimas considerando distancia, tráfico y prioridad de entrega.
 
-**Restricciones Técnicas**:
-- Lenguaje: `Java + Spring Boot`
-- Base de Datos: `PostgreSQL`
-- Arquitectura: Microservicios
+### ✅ Problemas que resuelve:
+- Reducción de tiempos de entrega  
+- Ahorro de combustible  
+- Mejor uso de recursos (vehículos y conductores)  
+- Mayor trazabilidad de rutas  
 
----
-
-### 3. 🧱 Estilos y Patrones Arquitectónicos
-
-**Estilo adoptado**:
-- Microservicios (cada feature como servicio independiente)
-
-**Patrones aplicados**:
-- Repositorio
-- Servicio (Service Layer)
-- Controlador (Controller)
-- API Gateway
-- CQRS (si aplica)
+### 👤 Principales usuarios:
+- Administradores logísticos  
+- Conductores  
+- Operadores de monitoreo  
 
 ---
 
-### 4. 📁 Vista de Paquetes (UML)
+## 🏗️ Requisitos Arquitectónicos
 
-Organización modular del microservicio `entregas`, dividiendo la lógica en:
+### ✅ No Funcionales:
+- ⏱️ Generación de rutas en < 3 segundos  
+- 📶 Disponibilidad ≥ 99.9%  
+- ⚙️ Escalabilidad concurrente  
+- 🔐 Seguridad por roles y cifrado de datos  
 
-- `entregas.controller`: Manejo de peticiones REST.
-- `entregas.service`: Lógica de negocio (validaciones, flujo de estado).
-- `entregas.repository`: Acceso y persistencia de datos.
-- `entregas.model`: Entidades como `Entrega`, `EstadoEntrega`, `Vehiculo`.
-
-> Diagrama generado en PlantUML con estilo visual de carpetas y relaciones entre paquetes.
-
----
-
-### 5. 🧩 Vista de Componentes (UML)
-
-Representación de los principales componentes del microservicio:
-
-- `EntregaController`
-- `EntregaService`
-- `NotificadorDeEntrega`
-- `EntregaRepository`
-- Base de datos
-
-> Se muestran las dependencias entre componentes y flujos de interacción internos.
+### ⚙️ Restricciones Técnicas:
+- Lenguaje: Java 17  
+- Framework: Spring Boot  
+- Base de datos: PostgreSQL (con soporte geoespacial)  
+- ORM: Hibernate (JPA) con Spring Data  
+- API: RESTful (controladores Spring MVC)  
+- Seguridad: Spring Security + JWT  
+- Notificaciones: Twilio o SendGrid  
+- Herramientas extra: Lombok, ModelMapper  
 
 ---
 
-### 6. ☁️ Vista de Despliegue
+## 🧱 Estilos y Patrones Arquitectónicos
 
-Despliegue del microservicio de entregas usando contenedores y arquitectura basada en servicios:
+- **Arquitectura en Capas**:  
+  - `controller`: presentación  
+  - `service`: lógica de negocio  
+  - `repository`: acceso a datos  
+  - `model`, `dto`: dominio y transporte  
+  - `security`, `exception`: capas transversales  
 
-- `API Gateway` (Nginx / Zuul)
-- `Contenedor Docker: entregas.jar`
-- `Base de Datos PostgreSQL`
-- `Servidor Kubernetes` o plataforma cloud
-
-> Incluye nodo lógico, artefactos desplegados y conectividad entre capas.
-
----
-
-### 7. 🔌 Definición Inicial de APIs (REST)
-
-| Método | Endpoint                       | Descripción                          |
-|--------|--------------------------------|--------------------------------------|
-| POST   | `/entregas`                   | Registrar nueva entrega              |
-| GET    | `/entregas/{id}`             | Consultar información de una entrega |
-| PUT    | `/entregas/{id}`             | Actualizar estado de entrega         |
-| GET    | `/entregas/courier/{id}`     | Consultar entregas por courier       |
-
-> Documentación futura en OpenAPI (Swagger).
+- **Patrones Aplicados**:
+  - Controlador–Servicio–Repositorio  
+  - DTO (Data Transfer Object)  
+  - Seguridad con JWT  
+  - Inyección de Dependencias (IoC)
 
 ---
 
-### 🚀 Herramientas Utilizadas
+## 🧩 Vista de Paquetes
 
-- **Lenguaje**: Java
-- **Framework**: Spring Boot
-- **Base de Datos**: PostgreSQL
-- **Contenerización**: Docker
-- **Diagramas**: PlantUML
+> El sistema está modularizado en paquetes según su responsabilidad:
+- `controller`: entrada de solicitudes HTTP  
+- `service`: lógica central del sistema  
+- `repository`: acceso a base de datos  
+- `dto`: objetos de transferencia  
+- `model`: entidades JPA  
+- `security`: configuración de seguridad y JWT  
+- `exception`: manejo global de errores
+
+---
+
+## 🧩 Vista de Componentes
+
+> Este diagrama representa los módulos principales del backend:
+- `controller` → depende de `service`  
+- `service` → consume `repository` y `dto`  
+- `repository` → interactúa con `model`  
+- `exception` y `security` son capas transversales
 
 ---
 
-### 🧠 Autor del módulo de arquitectura
+## 🚀 Vista de Despliegue
 
-> Responsable del diseño y documentación arquitectónica de la Feature 2 durante el Sprint 1.
+> Representa los componentes físicos y servicios externos:
+- 🌐 **Frontend** (Next.js) en [Vercel](https://vercel.com)  
+- ⚙️ **Backend** (Spring Boot) en [Render](https://render.com)  
+- 🗃️ **Base de datos PostgreSQL** en [Railway](https://railway.app)  
+- 🌐 Comunicación: HTTPS / REST API
 
 ---
+
+## 📚 Definición Inicial de APIs
+
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| POST | `/api/auth/register` | Registrar usuario |
+| POST | `/api/auth/login` | Login con token |
+| GET | `/api/users` | Listar todos los usuarios |
+| GET | `/api/users/{id}` | Buscar usuario por ID |
+| PUT | `/api/users/{id}` | Actualizar usuario |
+| DELETE | `/api/users/{id}` | Eliminar usuario |
+| POST | `/roles` | Crear rol |
+| PUT | `/roles/{id}` | Actualizar rol |
+| DELETE | `/roles/{id}` | Eliminar rol |
+| GET | `/roles` | Listar roles |
+
+> ℹ️ Todos los endpoints protegidos requieren token Bearer y rol “administrator”.
+
+---
+
+## 🧪 Consultas al Backend
+
+- 🔗 URL Base: `https://couriersync.onrender.com`
+
+### Ejemplo Login:
+```json
+POST /api/auth/login
+{
+  "email": "admin@email.com",
+  "password": "123456"
+}
+````
+
+🔐 Respuesta:
+
+```json
+{
+  "token": "eyJhbGciOiJIUzUxMiJ9...",
+  "role": "administrator"
+}
+```
+
+### Ejemplo Listado de Usuarios:
+
+```http
+GET /api/users
+Authorization: Bearer <token>
+```
+
+---
+
+## ✅ Herramienta de Diagramación
+
+Los diagramas UML fueron elaborados con **Enterprise Architect**.
+
+```
+
+---
+
+¿Deseas también que te genere el `README.md` como archivo descargable? Puedo hacerlo.
+```
 
