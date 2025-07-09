@@ -67,7 +67,7 @@ La feature **"Optimización de Rutas"** forma parte del sistema **CourierSync**,
 ---
 
 ## 📦 Vista de Paquetes
-
+![Paquetes](img/paquetes.png)
 El backend está dividido en los siguientes paquetes:
 
 - `controller`: Manejo de endpoints HTTP  
