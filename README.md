@@ -7,7 +7,8 @@
 - Jonatan Romero Arrieta  
 
 ### 👨‍🏫 Profesor:
-- Diego Botia  
+- Diego Botia
+- 
 - Universidad de Antioquia – Facultad de Ingeniería
 
 ---
@@ -82,4 +83,91 @@ El backend está dividido en los siguientes paquetes:
 ## 🧩 Vista de Componentes
 
 Relaciones entre paquetes principales:
+
+
+
+> Esta vista representa las dependencias entre los módulos lógicos del backend.
+
+---
+
+## 🌐 Vista de Despliegue
+
+El sistema está desplegado en tres entornos distintos:
+
+| Componente   | Plataforma | Tecnología |
+|--------------|------------|------------|
+| Frontend     | Vercel     | Next.js    |
+| Backend API  | Render     | Spring Boot (Docker) |
+| Base de Datos| Railway    | PostgreSQL |
+
+---
+
+## 🔌 API REST - Endpoints
+
+Listado base de endpoints:
+
+| Método | Endpoint             | Descripción                 |
+|--------|----------------------|-----------------------------|
+| POST   | /api/auth/register   | Registrar usuario           |
+| POST   | /api/auth/login      | Login y generación de token |
+| GET    | /api/users           | Obtener todos los usuarios  |
+| GET    | /api/users/{id}      | Obtener un usuario por ID   |
+| PUT    | /api/users/{id}      | Actualizar usuario          |
+| DELETE | /api/users/{id}      | Eliminar usuario            |
+| POST   | /roles               | Crear rol                   |
+| PUT    | /roles/{id}          | Actualizar rol              |
+| DELETE | /roles/{id}          | Eliminar rol                |
+| GET    | /roles               | Listar roles disponibles    |
+
+> 🔐 Todos los endpoints protegidos requieren token JWT con rol de `ADMINISTRATOR`.
+
+---
+
+## 📊 Monitoreo con Prometheus y Grafana
+
+Se configuró monitoreo a nivel de aplicación usando contenedores Docker.
+
+| Herramienta | Puerto | Función                    |
+|-------------|--------|----------------------------|
+| Prometheus  | 9090   | Recolector de métricas     |
+| Grafana     | 3001   | Visualización de métricas  |
+
+La aplicación expone métricas en el endpoint:  
+
+
+---
+
+## 📦 Docker y Despliegue
+
+La aplicación backend está dockerizada con:
+
+- `Dockerfile` para construir la imagen del backend.
+- `docker-compose.yml` que orquesta los contenedores de:
+  - Backend (Spring Boot)
+  - Prometheus
+  - Grafana
+  - PostgreSQL
+
+### 🖼️ Evidencias disponibles:
+- ✅ Prometheus detecta el target `springboot` como **UP**.
+- ✅ Grafana visualiza métricas como:
+  - Uso de memoria (JVM)
+  - Solicitudes HTTP
+  - Carga del sistema
+
+---
+
+## ⚙️ Herramientas utilizadas
+
+- **Spring Boot 3.4.5**
+- **PostgreSQL**
+- **Docker Compose**
+- **Grafana / Prometheus**
+- **Enterprise Architect** (diagramas UML)
+- **GitHub Codespaces** (entorno de desarrollo)
+
+---
+
+> Elaborado como parte del **Sprint 2** del proyecto **CourierSync – Arquitectura de Software 2025**.
+
 
