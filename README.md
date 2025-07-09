@@ -152,18 +152,18 @@ La aplicación backend está dockerizada con:
 ### 🖼️ Evidencias disponibles:
 - ✅ Prometheus detecta el target `springboot` como **UP**.
   
-  ![Prometheus](./img/prometheus.jpg)
+   ![Prometheus](./img/prometheus.jpg)
   
 - ✅ Grafana visualiza métricas como:
 
-  ![grafana](./img/prometheus.jpg)
+   ![grafana](./img/grafana.jpg)
   
   - Uso de memoria (JVM)
   - Solicitudes HTTP
     
- ![grafana1](./img/grafana1.jpg)
+   ![grafana1](./img/grafana1.jpg)
 
- ![grafana2](./img/grafana2.jpg)
+   ![grafana2](./img/grafana2.jpg)
 
 ---
 
