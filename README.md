@@ -125,6 +125,8 @@ Listado base de endpoints:
 | DELETE | /roles/{id}          | Eliminar rol                |
 | GET    | /roles               | Listar roles disponibles    |
 
+## Implementación con openAPI/Swagger:
+
 ![Swagger](./img/swagger.jpg)
 
 > 🔐 Todos los endpoints protegidos requieren token JWT con rol de `ADMINISTRATOR`.
