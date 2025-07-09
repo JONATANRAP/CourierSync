@@ -1,6 +1,3 @@
-Aquí tienes el contenido en formato **Markdown** (`README.md`) que puedes pegar directamente en tu repositorio de GitHub para documentar tu Sprint 1 de **CourierSync**, sin incluir imágenes:
-
----
 
 ````markdown
 # 📦 CourierSync – Sprint 1  
