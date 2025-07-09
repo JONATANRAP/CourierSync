@@ -1,7 +1,6 @@
-
-````markdown
 # 📦 CourierSync – Sprint 1  
-## 🚀 Feature: Optimización de Rutas  
+
+## 🚀 Feature: Optimización de Rutas
 
 ### 👥 Estudiantes:
 - Cristian Agudelo Márquez  
@@ -9,7 +8,7 @@
 
 ### 👨‍🏫 Profesor:
 - Diego Botia  
-- Universidad de Antioquia – Facultad de Ingeniería  
+- Universidad de Antioquia – Facultad de Ingeniería
 
 ---
 
@@ -33,131 +32,54 @@ La feature **"Optimización de Rutas"** forma parte del sistema **CourierSync**,
 ## 🏗️ Requisitos Arquitectónicos
 
 ### ✅ No Funcionales:
-- ⏱️ Generación de rutas en < 3 segundos  
-- 📶 Disponibilidad ≥ 99.9%  
-- ⚙️ Escalabilidad concurrente  
-- 🔐 Seguridad por roles y cifrado de datos  
+- Generación de rutas en menos de 3 segundos  
+- Alta disponibilidad: 99.9%  
+- Escalabilidad para múltiples solicitudes concurrentes  
+- Seguridad: cifrado y autenticación por roles
 
 ### ⚙️ Restricciones Técnicas:
 - Lenguaje: Java 17  
 - Framework: Spring Boot  
-- Base de datos: PostgreSQL (con soporte geoespacial)  
-- ORM: Hibernate (JPA) con Spring Data  
-- API: RESTful (controladores Spring MVC)  
+- Base de datos: PostgreSQL  
+- ORM: Hibernate (JPA)  
+- API: RESTful (Spring MVC)  
 - Seguridad: Spring Security + JWT  
-- Notificaciones: Twilio o SendGrid  
-- Herramientas extra: Lombok, ModelMapper  
+- Otros: Lombok, ModelMapper  
 
 ---
 
 ## 🧱 Estilos y Patrones Arquitectónicos
 
-- **Arquitectura en Capas**:  
-  - `controller`: presentación  
-  - `service`: lógica de negocio  
-  - `repository`: acceso a datos  
-  - `model`, `dto`: dominio y transporte  
-  - `security`, `exception`: capas transversales  
+### 🧩 Arquitectura en Capas:
+- **Controller:** Control de entrada/salida HTTP  
+- **Service:** Lógica de negocio  
+- **Repository:** Persistencia con JPA  
+- **Model/DTO:** Datos y transferencia  
+- **Security/Exception:** Seguridad y errores globales
 
-- **Patrones Aplicados**:
-  - Controlador–Servicio–Repositorio  
-  - DTO (Data Transfer Object)  
-  - Seguridad con JWT  
-  - Inyección de Dependencias (IoC)
+### 🔁 Patrones Aplicados:
+- DTO (Data Transfer Object)  
+- Repository Pattern  
+- Seguridad basada en JWT  
+- Inyección de Dependencias (IoC)  
 
 ---
 
-## 🧩 Vista de Paquetes
+## 📦 Vista de Paquetes
 
-> El sistema está modularizado en paquetes según su responsabilidad:
-- `controller`: entrada de solicitudes HTTP  
-- `service`: lógica central del sistema  
-- `repository`: acceso a base de datos  
-- `dto`: objetos de transferencia  
-- `model`: entidades JPA  
-- `security`: configuración de seguridad y JWT  
-- `exception`: manejo global de errores
+El backend está dividido en los siguientes paquetes:
+
+- `controller`: Manejo de endpoints HTTP  
+- `service`: Lógica del sistema (negocio)  
+- `repository`: Acceso a datos y queries  
+- `model`: Entidades JPA (tablas)  
+- `dto`: Transferencia de datos entre capas  
+- `security`: JWT y filtros de seguridad  
+- `exception`: Captura de errores personalizados  
 
 ---
 
 ## 🧩 Vista de Componentes
 
-> Este diagrama representa los módulos principales del backend:
-- `controller` → depende de `service`  
-- `service` → consume `repository` y `dto`  
-- `repository` → interactúa con `model`  
-- `exception` y `security` son capas transversales
-
----
-
-## 🚀 Vista de Despliegue
-
-> Representa los componentes físicos y servicios externos:
-- 🌐 **Frontend** (Next.js) en [Vercel](https://vercel.com)  
-- ⚙️ **Backend** (Spring Boot) en [Render](https://render.com)  
-- 🗃️ **Base de datos PostgreSQL** en [Railway](https://railway.app)  
-- 🌐 Comunicación: HTTPS / REST API
-
----
-
-## 📚 Definición Inicial de APIs
-
-| Método | Endpoint | Descripción |
-|--------|----------|-------------|
-| POST | `/api/auth/register` | Registrar usuario |
-| POST | `/api/auth/login` | Login con token |
-| GET | `/api/users` | Listar todos los usuarios |
-| GET | `/api/users/{id}` | Buscar usuario por ID |
-| PUT | `/api/users/{id}` | Actualizar usuario |
-| DELETE | `/api/users/{id}` | Eliminar usuario |
-| POST | `/roles` | Crear rol |
-| PUT | `/roles/{id}` | Actualizar rol |
-| DELETE | `/roles/{id}` | Eliminar rol |
-| GET | `/roles` | Listar roles |
-
-> ℹ️ Todos los endpoints protegidos requieren token Bearer y rol “administrator”.
-
----
-
-## 🧪 Consultas al Backend
-
-- 🔗 URL Base: `https://couriersync.onrender.com`
-
-### Ejemplo Login:
-```json
-POST /api/auth/login
-{
-  "email": "admin@email.com",
-  "password": "123456"
-}
-````
-
-🔐 Respuesta:
-
-```json
-{
-  "token": "eyJhbGciOiJIUzUxMiJ9...",
-  "role": "administrator"
-}
-```
-
-### Ejemplo Listado de Usuarios:
-
-```http
-GET /api/users
-Authorization: Bearer <token>
-```
-
----
-
-## ✅ Herramienta de Diagramación
-
-Los diagramas UML fueron elaborados con **Enterprise Architect**.
-
-```
-
----
-
-¿Deseas también que te genere el `README.md` como archivo descargable? Puedo hacerlo.
-```
+Relaciones entre paquetes principales:
 
